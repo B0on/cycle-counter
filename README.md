@@ -2,7 +2,11 @@
 
 A Chrome extension that automatically increments a counter each day based on a configurable daily rate and cycle length.
 
+**Version:** 1.2.0 · **Repository:** [github.com/B0on/cycle-counter](https://github.com/B0on/cycle-counter)
+
 **Default language: English.** Japanese is available via the Language selector in the popup.
+
+Chrome Web Store submission is in progress. Listing copy and privacy-tab fields are in [docs/STORE_LISTING.md](docs/STORE_LISTING.md).
 
 ## Use cases
 
@@ -76,6 +80,29 @@ Source: [docs/privacy-policy.html](docs/privacy-policy.html)
 |------------|---------|
 | `storage` | Save settings (daily increment, cycle length, start date, locale) |
 | `alarms` | Refresh the badge hourly and at midnight |
+
+No host permissions. No remote code.
+
+## Store assets
+
+Screenshots and promotional tiles for the Chrome Web Store live in `store-screenshots/`:
+
+| File | Size | Purpose |
+|------|------|---------|
+| `screenshot-en-1280x800.png` | 1280×800 | Primary English listing screenshot |
+| `screenshot-en-640x400.png` | 640×400 | English screenshot (small) |
+| `screenshot-ja-1280x800.png` | 1280×800 | Japanese locale screenshot |
+| `screenshot-ja-640x400.png` | 640×400 | Japanese screenshot (small) |
+| `promo-tile-small-440x280.png` | 440×280 | Small promotional tile |
+| `promo-tile-marquee-1400x560.png` | 1400×560 | Marquee promotional tile |
+
+Regenerate assets with Pillow installed:
+
+```bash
+python3 scripts/generate_store_screenshots.py
+```
+
+The script composites raw popup captures with branded frames and writes PNGs to `store-screenshots/`. Source captures live in `assets/screenshots/` (`popup-en.png`, `popup-ja.png`).
 
 ## License
 
