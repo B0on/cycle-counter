@@ -62,9 +62,13 @@ ZIP must include:
 - `popup.html`, `popup.css`, `popup.js`
 - `icons/`
 
-## プライバシーポリシー
+## Privacy policy
 
-[docs/privacy-policy.html](docs/privacy-policy.html) を GitHub Pages 等で公開し、ストア申請時に URL を入力してください。
+Published at: **https://b0on.github.io/cycle-counter/privacy-policy.html**
+
+Use this URL when submitting to the Chrome Web Store.
+
+Source: [docs/privacy-policy.html](docs/privacy-policy.html)
 
 ## 権限の説明
 

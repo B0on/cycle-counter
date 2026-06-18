@@ -82,10 +82,10 @@ Recommended size: 1280×800 or 640×400
 - [ ] Test install, save, reset, language switch
 - [ ] No errors on `chrome://extensions`
 
-## Privacy policy URL example
+## Privacy policy URL
 
 ```
-https://<username>.github.io/<repo>/docs/privacy-policy.html
+https://b0on.github.io/cycle-counter/privacy-policy.html
 ```
 
-Add an English version of the privacy policy if targeting international users.
+Repository: https://github.com/B0on/cycle-counter
