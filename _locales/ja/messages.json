@@ -1,0 +1,11 @@
+{
+  "extName": {
+    "message": "Cycle Counter"
+  },
+  "extDescription": {
+    "message": "1日あたりの増加量で自動カウント。貯金・学習・スタミナ管理に。データは端末内のみに保存されます。"
+  },
+  "actionTitle": {
+    "message": "Cycle Counter"
+  }
+}

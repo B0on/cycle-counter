@@ -1,0 +1,11 @@
+{
+  "extName": {
+    "message": "Cycle Counter"
+  },
+  "extDescription": {
+    "message": "Auto-incrementing counter based on daily rate. For savings, learning, stamina tracking. Data stored locally only."
+  },
+  "actionTitle": {
+    "message": "Cycle Counter"
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cycle Counter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="container">
+    <p class="tagline" data-i18n="tagline"></p>
+
+    <section class="display-section">
+      <p class="display-label" data-i18n="currentValue"></p>
+      <p id="current-value" class="current-value">0.0</p>
+      <p id="next-update" class="next-update"></p>
+    </section>
+
+    <section class="progress-section">
+      <p id="cycle-progress-text" class="progress-text"></p>
+      <div class="progress-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progress-bar" class="progress-bar-fill"></div>
+      </div>
+      <p id="progress-percent" class="progress-percent">0%</p>
+    </section>
+
+    <hr class="divider">
+
+    <form id="settings-form" class="settings-form" novalidate>
+      <div class="form-group">
+        <label for="daily-increment" data-i18n="dailyIncrement"></label>
+        <input type="number" id="daily-increment" step="0.1" min="0.1" required>
+        <p id="error-daily-increment" class="field-error" role="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="cycle-length" data-i18n="cycleLength"></label>
+        <input type="number" id="cycle-length" step="1" min="1" required>
+        <p id="error-cycle-length" class="field-error" role="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="start-date" data-i18n="startDate"></label>
+        <input type="date" id="start-date" required>
+        <p id="error-start-date" class="field-error" role="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="locale" data-i18n="language"></label>
+        <select id="locale" class="locale-select">
+          <option value="en" data-i18n="langEn"></option>
+          <option value="ja" data-i18n="langJa"></option>
+        </select>
+      </div>
+
+      <div class="button-row">
+        <button type="submit" id="save-btn" class="btn btn-primary" data-i18n="save"></button>
+        <button type="button" id="reset-btn" class="btn btn-secondary" data-i18n="reset"></button>
+      </div>
+    </form>
+
+    <p id="status-message" class="status-message" aria-live="polite"></p>
+  </main>
+
+  <script src="i18n.js"></script>
+  <script src="utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
