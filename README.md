@@ -1,49 +1,49 @@
 # Cycle Counter
 
-An auto-incrementing counter Chrome extension based on a daily rate and cycle length.
+A Chrome extension that automatically increments a counter each day based on a configurable daily rate and cycle length.
 
 **Default language: English.** Japanese is available via the Language selector in the popup.
 
 ## Use cases
 
-- 貯金進捗の管理
-- 筋トレ・学習ポイントの積み上げ
-- ゲームスタミナの管理
-- 任意の周期カウンター
+- Savings goal progress
+- Workout or study point tracking
+- Game stamina recovery tracking
+- Any counter that resets on a repeating cycle
 
-## 機能
+## Features
 
-- ツールバーバッジに現在値を表示
-- ポップアップで現在値・経過日数・進捗バーを確認
-- 増加量・周期・開始日を自由に設定
-- 周期終了後は自動でリセット
-- すべてのデータは端末内（`chrome.storage.local`）にのみ保存
+- Current value shown on the toolbar badge
+- Popup with current value, elapsed days, and progress bar
+- Customizable daily increment, cycle length, and start date
+- Automatically resets to day 1 when a cycle completes
+- All data stored locally on your device (`chrome.storage.local` only)
 
-## 計算式
+## How it works
 
 ```
-経過日数 = floor((現在日時 - 開始日) / 86400000)
-周期内日数 = 経過日数 % 周期日数
-現在値 = (周期内日数 + 1) × 1日あたり増加量
+elapsedDays = floor((now - startDate) / 86400000)
+cycleDay    = elapsedDays % cycleLength
+currentValue = (cycleDay + 1) × dailyIncrement
 ```
 
-例（増加量 3.3、周期 30日）:
+Example (daily increment 3.3, cycle length 30 days):
 
-| 日 | 値 |
-|----|-----|
-| 1日目 | 3.3 |
-| 2日目 | 6.6 |
-| 30日目 | 99.0 |
-| 31日目 | 3.3（リセット） |
+| Day | Value |
+|-----|-------|
+| Day 1 | 3.3 |
+| Day 2 | 6.6 |
+| Day 30 | 99.0 |
+| Day 31 | 3.3 (reset) |
 
-## 開発者向け：ローカル読み込み
+## Install locally (developers)
 
-1. Chrome で `chrome://extensions` を開く
-2. **デベロッパーモード** を ON
-3. **パッケージ化されていない拡張機能を読み込む**
-4. このフォルダを選択
+1. Open `chrome://extensions` in Chrome
+2. Enable **Developer mode**
+3. Click **Load unpacked**
+4. Select this folder
 
-## Chrome Web Store 公開用 ZIP の作成
+## Build a ZIP for the Chrome Web Store
 
 ```bash
 zip -r cycle-counter.zip . \
@@ -52,10 +52,12 @@ zip -r cycle-counter.zip . \
   -x "docs/*" \
   -x "README.md" \
   -x "LICENSE" \
+  -x "store-screenshots/*" \
+  -x "scripts/*" \
   -x "*.zip"
 ```
 
-ZIP must include:
+The ZIP must include:
 
 - `manifest.json`, `_locales/`
 - `background.js`, `utils.js`, `i18n.js`
@@ -66,17 +68,15 @@ ZIP must include:
 
 Published at: **https://b0on.github.io/cycle-counter/privacy-policy.html**
 
-Use this URL when submitting to the Chrome Web Store.
-
 Source: [docs/privacy-policy.html](docs/privacy-policy.html)
 
-## 権限の説明
+## Permissions
 
-| 権限 | 理由 |
-|------|------|
-| `storage` | 設定（増加量・周期・開始日）の保存 |
-| `alarms` | バッジの自動更新（1時間ごと・日付変更時） |
+| Permission | Purpose |
+|------------|---------|
+| `storage` | Save settings (daily increment, cycle length, start date, locale) |
+| `alarms` | Refresh the badge hourly and at midnight |
 
-## ライセンス
+## License
 
 MIT
